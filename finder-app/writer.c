@@ -1,3 +1,7 @@
-//
-// Created by marcosbarrera on 9/13/25.
-//
+#include <stdio.h>
+#include <syslog.h>
+#include <string.h>
+
+int main(int argc, char *argv[]) {
+    return 0;
+}
