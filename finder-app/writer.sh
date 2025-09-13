@@ -2,9 +2,9 @@
 # Author: Marcos Barrera
 
 #DONE variable writefile that accepts first argument that is a full path to a file including the filename
-writefile = $1
+writefile=$1
 #DONE variable writestr that accepts second argument a text string which will be written to writefile
-writestr = $2
+writestr=$2
 #DONE Exit with value 1 error and print statements if any of the arguments are not specified
 if [ -n "${writefile}" ] && [ -n "${writestr}" ]; then
   echo "passed!"
