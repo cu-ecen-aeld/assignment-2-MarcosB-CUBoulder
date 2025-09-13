@@ -14,7 +14,7 @@ if [ -n "${writefile}" ] && [ -n "${writestr}" ]; then
     echo "${writestr}" > ${writefile}
     exit 0
   elif ! [ -d "$(dirname -- ${writefile})" ]; then
-    mkdir $(dirname -- ${writefile})
+    mkdir -p $(dirname -- ${writefile})
     echo "${writestr}" > ${writefile}
     exit 0
   else
