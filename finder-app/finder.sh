@@ -1,5 +1,4 @@
 #!/bin/sh
-# Description
 # Author: Marcos Barrera
 
 #DONE Accept $1 path to a directory runtime argument as filesdir
