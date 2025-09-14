@@ -6,11 +6,20 @@ int main(int argc, char *argv[]) {
         syslog(LOG_ERR,"Incorrect amount of command line arguments: %d",argc);
         return 1;
     }
+    if (argv[1][0] == '\0' || argv[2][0] == '\0') {
+        syslog(LOG_ERR, "Empty string passed as command line argument!");
+        return 1;
+    }
+
 
     //DONE assume that the directory exists and write string input to absolute file path
     //./writer "$WRITEDIR/${username}$i.txt" "$WRITESTR"
     //DONE variable writefile that accepts first argument that is a full path to a file including the filename
     FILE *writefile = fopen(argv[1], "w");
+    if (writefile == NULL) {
+        syslog(LOG_ERR, "File not created!");
+        return 1;
+    }
     char writestr[80 + 1];
     sprintf(writestr, "%s", argv[2]);
     fputs(writestr, writefile);
@@ -22,7 +31,7 @@ int main(int argc, char *argv[]) {
     //DONE Write content writestr into writefile
 
     //DONE Exits with value 1 and error print statement if the file could not be created
-    //TODO Ensure all error handling has been implemented for writer.c
+    //DONE Ensure all error handling has been implemented for writer.c
     //DONE Ensure syslog logging is setup and working properly (you should see messages logged to /var/log/syslog on Ubuntu).
     return 0;
 }
