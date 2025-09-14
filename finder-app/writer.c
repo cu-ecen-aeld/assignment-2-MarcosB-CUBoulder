@@ -3,21 +3,26 @@
 int main(int argc, char *argv[]) {
     if ( argc != 3 ) {
         printf("Incorrect amount of command line arguments!\n");
+        printf("Two arguments expected. Arg1: Absolute File Path. Arg2: String to write to file.\n");
         return 1;
     }
 
-    //TODO assume that the directory exists and write string input to absolute file path
+    //DONE assume that the directory exists and write string input to absolute file path
     //./writer "$WRITEDIR/${username}$i.txt" "$WRITESTR"
-    //TODO variable writefile that accepts first argument that is a full path to a file including the filename
+    //DONE variable writefile that accepts first argument that is a full path to a file including the filename
     FILE *writefile = fopen(argv[1], "w");
-    fputs(argv[2], writefile);
+    char writestr[80 + 1];
+    sprintf(writestr, "%s", argv[2]);
+    fputs(writestr, writefile);
     fclose(writefile);
-    //TODO variable writestr that accepts second argument a text string which will be written to writefile
-    //TODO Exit with value 1 error and print statements if any of the arguments are not specified
-    //TODO Creates a new file with name and path writefile overwriting the existing file and creating the path if it doesn't exist
+    //DONE variable writestr that accepts second argument a text string which will be written to writefile
+    //DONE Exit with value 1 error and print statements if any of the arguments are not specified
+    //DONE Creates a new file with name and path writefile overwriting the existing file and creating the path if it doesn't exist
 
-    //TODO Write content writestr into writefile
+    //DONE Write content writestr into writefile
 
-    //TODO Exits with value 1 and error print statement if the file could not be created
+    //DONE Exits with value 1 and error print statement if the file could not be created
+    //TODO Ensure all error handling has been implemented for writer.c
+    //TODO Ensure syslog logging is setup and working properly (you should see messages logged to /var/log/syslog on Ubuntu).
     return 0;
 }
