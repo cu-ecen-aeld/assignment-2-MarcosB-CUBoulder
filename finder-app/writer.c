@@ -1,9 +1,9 @@
 #include <stdio.h>
+#include <syslog.h>
 
 int main(int argc, char *argv[]) {
     if ( argc != 3 ) {
-        printf("Incorrect amount of command line arguments!\n");
-        printf("Two arguments expected. Arg1: Absolute File Path. Arg2: String to write to file.\n");
+        syslog(LOG_ERR,"Incorrect amount of command line arguments: %d",argc);
         return 1;
     }
 
@@ -23,6 +23,6 @@ int main(int argc, char *argv[]) {
 
     //DONE Exits with value 1 and error print statement if the file could not be created
     //TODO Ensure all error handling has been implemented for writer.c
-    //TODO Ensure syslog logging is setup and working properly (you should see messages logged to /var/log/syslog on Ubuntu).
+    //DONE Ensure syslog logging is setup and working properly (you should see messages logged to /var/log/syslog on Ubuntu).
     return 0;
 }
