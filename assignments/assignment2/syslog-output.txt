@@ -1,0 +1,2 @@
+Sep 14 16:43:12 pop-os writer: Empty string passed as command line argument!
+Sep 14 16:43:16 pop-os writer: Empty string passed as command line argument!
